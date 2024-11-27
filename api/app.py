@@ -5,6 +5,7 @@ from google.generativeai.types import generation_types
 from flask import Flask, request, stream_with_context
 import pytube
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -48,7 +49,7 @@ def get_transcript(video_id: str, language: str = None):
 
 def summarize_text(video_id: str):
     transcript = get_transcript(video_id)
-    genai.configure(api_key="AIzaSyDpgM0DiVLHfAYCkM-4SlrH_uiUUyzZbK0")
+    genai.configure(api_key=os.getenv('GOOGLE_AI_API_KEY'))
     model = genai.GenerativeModel("gemini-1.5-flash")
     prompt = 'Summarize this transcript and structure it into chapters. Write the summary and chapters in the input language. Format output as: {"chapters": ["title": "CHAPTER_TITLE", "start": "START_TIMESTAMP", "end": "END_TIMESTAMP"}], "summary": "VIDEO_SUMMARY"}.'
     response = model.generate_content(
