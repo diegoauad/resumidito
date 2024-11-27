@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumidi.to</title>
+  <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Resumidi.to</h1>
+    <div id="video-summary">
+      <h2>Partes</h2>
+      <div class="loading-container loading-chapters">
+        <div class="spinner"></div>
+        <p>Cargando...</p>
+      </div>
+      <ul id="chapters-list">
+        <!-- Chapters will be dynamically populated here -->
+      </ul>
+      <h2>Resumen</h2>
+      <div class="loading-container loading-summary">
+        <div class="spinner"></div>
+        <p>Cargando...</p>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="scripts/oboe.min.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
